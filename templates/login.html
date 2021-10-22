@@ -4,8 +4,8 @@
 <body class="text-center">  
 <main class="form-signin">
   <form method="POST">{% csrf_token %}
-    {{ error }}
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    {{ context }}
+    <h1 class="h3 mb-3 fw-normal">Please login</h1>
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
       <label for="floatingInput">Username</label>
@@ -14,7 +14,7 @@
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
       <label for="floatingPassword">Password</label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">login</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
   </form>
 </main>
