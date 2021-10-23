@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-info" role="alert">
+  <h3>InternalSNS</h3>
+</div>
+{% endblock header %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+  {% for item in object_list %}
+  <div class="alert alert-success" role="alert">
+    <p>Title:<a href="{% url 'detail' item.pk %}">{{ item.title }}</a></p>
+    <p>Name:{{ item.author }}</p>
+    <a href="#" class="btn btn-primary disabled" role="button">Like:{{ item.good }}</a>
+    <a href="#" class="btn btn-secondary disabled" role="button">AlreadyRead:{{ item.read }} men</a>
+  </div>
+  {% endfor %}
+  <a href="{% url 'create' %}" class="btn btn-primary" role="button">Create</a>
+  <a href="{% url 'logout' %}" class="btn btn-secondary" role="button">Logout</a>
+</div>
+{% else %}
+<p>Please Login</p>
+{% endif %}
+{% endblock content %}
+
