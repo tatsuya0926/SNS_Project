@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="alert alert-info" role="alert">
+<div class="alert alert-warning" role="alert">
   <h3>Detail Page</h3>
 </div>
 {% endblock header %}
@@ -23,3 +23,14 @@
 <p>Please Login</p>
 {% endif %}
 {% endblock content %}
+
+{% block footer %}
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; 2021- Miya-Tatsu</p>
+  <ul class="list-inline">
+    <li class="list-inline-item"><a href="https://twitter.com/TSUTAYA00000926">Twitter</a></li>
+    <li class="list-inline-item"><a href="#">note</a></li>
+    <li class="list-inline-item"><a href="#">その他</a></li>
+  </ul>
+</footer>
+{% endblock footer %}
