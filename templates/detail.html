@@ -10,8 +10,9 @@
 {% if user.is_authenticated %}
 <div class="container">
   <div class="alert alert-success" role="alert">
-    <p>Title:{{ object.title }}</p>
-    <p>Name:{{ object.author }}</p>
+    <p>Name: {{ object.author }}</p>
+    <p>Title: {{ object.title }}</p>
+    <p>Content: {{ object.content }}</p>
     <p><img src="{{ object.snsimage.url }}" width=300></p>
     <a href="{% url 'good' object.pk %}" class="btn btn-primary" role="button">Like</a>
     <a href="{% url 'read' object.pk %}" class="btn btn-secondary" role="button">AlreadyRead</a>

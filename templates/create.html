@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 
+{% block header %}
+<div class="alert alert-info" role="alert">
+  <h3>Create Page</h3>
+</div>
+{% endblock header %}
+
 {% block content %}
 {% if user.is_authenticated %}
-
 <div class="container">
   <main>
     <div class="py-5 text-center">
       {% comment %} <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> {% endcomment %}
       <h2>Let's Create Message</h2>
-      <p class="lead">Create Messages, try to raise your production and coporate your best members</p>
+      <p class="lead">Create Messages, try to raise your production and communicate your best members</p>
     </div>
 
     <div class="row g-3">
@@ -39,6 +44,7 @@
             <span>Push "Create" button !</span>
           </li>
         </ul>
+        <p><a href="{% url 'list' %}" class="btn btn-secondary" role="button">Back</a></p>
       </div>
 
       <div class="col-md-7 col-lg-8">
@@ -48,17 +54,11 @@
             <div class="col-12">
               <label for="title" class="form-label">Title <span class="text-muted">（タイトル）</span></label>
               <input type="text" class="form-control" name="title" placeholder="Message's title">
-              <div class="invalid-feedback">
-                Please write your message's title（タイトルを書いてください）
-              </div>
             </div>
 
             <div class="col-12">
               <label for="content" class="form-label">Content <span class="text-muted">（内容）</span></label>
               <input type="text" class="form-control" name="content" placeholder="Message's content" required>
-              <div class="invalid-feedback">
-                Please write your message's content（内容を書いてください）
-              </div>
             </div>
 
             <div class="mb-3">
@@ -86,9 +86,6 @@
   </footer>
 </div>
 
-<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-<script src="form-validation.js"></script>
 {% else %}
 <div class="py-5 text-center">
   <h2>Please Login again</h2>
