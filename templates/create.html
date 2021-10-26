@@ -2,17 +2,96 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<div>
-  <form method="POST" enctype="multipart/form-data">{% csrf_token %}
-  <p>Title<input type="text" name="title"></p>
-  <p>Content<input type="text" name="content"></p>
-  <p><input type="file" name="snsimage"></p>
-  <input type="hidden" name="author" value="{{ user.username }}">
 
-  <input type="submit" value="create">
-  </form>
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      {% comment %} <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> {% endcomment %}
+      <h2>Let's Create Message</h2>
+      <p class="lead">Create Messages, try to raise your production and coporate your best members</p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">How to use create massage</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">1.Title</h6>
+              <small class="text-muted">Write the best message's title</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">2.Content</h6>
+              <small class="text-muted">Create your message's content</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">3.Image</h6>
+              <small class="text-muted">Upload your favorite imagefile</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Push "Create" button !</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Form</h4>
+        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="title" class="form-label">Title <span class="text-muted">（タイトル）</span></label>
+              <input type="text" class="form-control" name="title" placeholder="Message's title">
+              <div class="invalid-feedback">
+                Please write your message's title（タイトルを書いてください）
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="content" class="form-label">Content <span class="text-muted">（内容）</span></label>
+              <input type="text" class="form-control" name="content" placeholder="Message's content" required>
+              <div class="invalid-feedback">
+                Please write your message's content（内容を書いてください）
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="snsimage" class="form-label">Image <span class="text-muted">（画像）</span></label>
+              <input type="file" class="form-control" name="snsimage" placeholder="">
+            </div>
+
+            <input type="hidden" name="author" value="{{ user.username }}">
+
+            <hr class="my-4">
+          </div>
+          <input type="submit" class="w-100 btn btn-primary btn-lg" value="Create">
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2021- Miya-Tatsu</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="https://twitter.com/TSUTAYA00000926">Twitter</a></li>
+      <li class="list-inline-item"><a href="#">note</a></li>
+      <li class="list-inline-item"><a href="#">その他</a></li>
+    </ul>
+  </footer>
 </div>
+
+<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+<script src="form-validation.js"></script>
 {% else %}
-<p>Please Login</p>
+<div class="py-5 text-center">
+  <h2>Please Login again</h2>
+</div>
 {% endif %}
 {% endblock content %}
