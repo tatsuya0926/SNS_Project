@@ -10,7 +10,7 @@
 
 ・venvによる仮想環境を使用
 
-・Django
+・Django(Python3.9.10)
 
 ## Step1.Install
 ```
