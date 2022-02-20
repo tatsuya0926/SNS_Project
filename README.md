@@ -18,12 +18,12 @@ git clone "URL"
 ```
 
 ## Step2.Set up environment
-仮想環境を作成
+・仮想環境を作成
 ```
 cd [project dir]
 python3 -m venv [newenvname]
 ```
-仮想環境を有効化
+・仮想環境を有効化
 ```
 source [newenvname]/bin/activate
 ```
@@ -31,13 +31,30 @@ source [newenvname]/bin/activate
 ```
 . [newenvname]/bin/activate
 ```
-pipコマンドで必要なパッケージをインストール
+・pipコマンドで必要なパッケージをインストール
 ```
 pip install -r requirements.txt
 ```
-MySQLは今度導入予定
+・db作成
+boardprojectディレクトリのsettings.pyにてDATABASESを以下のように変更
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '[dbname]',
+        'USER': '[username]',
+        'PASSWORD': '[password]',
+    }
+}
+```
 
-## Step3.Run Django in development mode
+## Step3.Run migration
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+## Step4.Run Django in development mode
 ローカルサーバー起動
 ```
 python manage.py runserver
