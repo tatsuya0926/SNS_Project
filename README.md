@@ -37,6 +37,7 @@ pip install -r requirements.txt
 ```
 ・db作成
 boardprojectディレクトリのsettings.pyにてDATABASESを以下のように変更
+('NAME','USER','PASSWORD'はMySQLで設定したものを追記)
 ```
 DATABASES = {
     'default': {
@@ -44,13 +45,15 @@ DATABASES = {
         'NAME': '[dbname]',
         'USER': '[username]',
         'PASSWORD': '[password]',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 ```
 
 ## Step3.Run migration
+作成済みのモデルをmigrateする
 ```
-python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
@@ -59,4 +62,4 @@ python3 manage.py migrate
 ```
 python manage.py runserver
 ```
-You can access to http://127.0.0.1:8000/.
+You can access to http://127.0.0.1:8000.
